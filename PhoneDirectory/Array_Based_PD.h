@@ -1,6 +1,7 @@
 #ifndef ARRAY_BASED_PD_H_
 #define ARRAY_BASED_PD_H_
 #include <string>
+using namespace std;
 
 /** Specification file for the array-based phone directory.
  */
@@ -56,21 +57,28 @@ private:
 	class Directory_Entry /* Exercise 1.6: Please complete the definition of the Directory_Entry class here. - Ed/Kent */
 	{
 	public:
-		Directory_Entry() {} // Default no-argument constructor 
-		Directory_Entry(std::string the_name, std::string the_number) {
-			// constructor not implemented yet
+		Directory_Entry() { // Default no-argument constructor 
+		
+			name = "";
+			number = "";
+		} 
+		Directory_Entry(string the_name, string the_number) {
+			name = the_name;
+			number = the_number;
 		}
 		std::string get_name() const {
-			return ""; // method not implemented yet
+			return name;
 		}
 		std::string get_number() const {
-			return ""; // method not implemented yet
+			return number;
 		}
-		void set_number(const std::string& new_number) {
-			// method not implemented yet
+		void set_number(const string& new_number) {
+			number = new_number;
 		}
 
 	private:
+		string name;
+		string number;
 
 	};
 
@@ -80,7 +88,14 @@ private:
 		@return The index of the entry containing the name, or size
 		if the name is not found
 		*/
-	int find(const std::string& name) const;
+	int find(const string& name) const; /*{
+		for (int i = 0; i < size; i++)
+		{
+			if (name == the_directory->get_name())
+				return i + 1;
+		}
+		return size;
+	}*/
 
 	/** Adds a new entry with the given name and number to the array
 		of directory entries.
